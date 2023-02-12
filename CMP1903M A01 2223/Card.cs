@@ -12,7 +12,22 @@ namespace CMP1903M_A01_2223
         //Value: numbers 1 - 13
         //Suit: numbers 1 - 4
         //The 'set' methods for these properties could have some validation
-        public int Value { get; set; }
-        public int Suit { get; set; }
+        public int Value { get; private set; }
+        public int Suit { get; private set; }
+
+        public Card(int Value, int Suit) {
+            if(Value > 13 || Value < 1) {
+                throw new ArgumentOutOfRangeException("Value", "Value must be in the range 1-13 inclusive.");
+            }
+            if(Suit > 4 || Suit < 1) {
+                throw new ArgumentOutOfRangeException("Suit", "Suit must be in the range 1-4 inclusive.");
+            }
+            this.Value = Value;
+            this.Suit = Suit;
+        }
+
+        public override string ToString() {
+            return "Suit: " + this.Suit + ", Value: " + this.Value;
+        }
     }
 }
