@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CMP1903M_A01_2223
 {
@@ -31,7 +28,32 @@ namespace CMP1903M_A01_2223
 
         public static bool shuffleCardPack(int typeOfShuffle)
         {
+            //•	The typeOfShuffle should be 1: Fisher-Yates Shuffle  2: Riffle Shuffle  3: No Shuffle
+            // https://en.wikipedia.org/wiki/Fisher–Yates_shuffle#The_modern_algorithm
+            if(typeOfShuffle < 1 || typeOfShuffle > 3) {
+                throw new ArgumentOutOfRangeException("typeOfShuffle", "typeOfShuffle must be in the range 1-3 inclusive.");
+            }
+            if(typeOfShuffle == 3) {
+                return true;
+            }
+
             Pack pack = Pack.singleton;
+            Random rand = new Random();
+
+            if(typeOfShuffle == 1) {
+                /*
+                    -- To shuffle an array a of n elements (indices 0..n-1):
+                    for i from 0 to n−2 do
+                        j ← random integer such that i ≤ j < n
+                        exchange a[i] and a[j]
+                */
+                for(int i = 0; i < 51; i++) {
+                    int j = rand.Next(i, 52);
+                    (pack.pack[j], pack.pack[i]) = (pack.pack[i], pack.pack[j]);
+                }
+            } else {
+
+            }
             
             return true;
 
@@ -51,7 +73,7 @@ namespace CMP1903M_A01_2223
         public static List<Card> dealCard(int amount)
         {
             if(amount > 52 || amount < 1) {
-                throw new ArgumentOutOfRangeException("amount", "Amount must be between 1-52 inclusive.");
+                throw new ArgumentOutOfRangeException("amount", "Amount must be in the range 1-52 inclusive.");
             }
             //Deals the number of cards specified by 'amount'
             Pack pack = Pack.singleton;
