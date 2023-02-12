@@ -7,7 +7,8 @@ namespace CMP1903M_A01_2223
         static void Main(string[] args)
         {
             new Pack();
-            Pack.shuffleCardPack(1);
+            for(int i = 0; i < 5; i++) Pack.shuffleCardPack(2);
+            
             Pack.dealCard(52).ForEach(card => Console.WriteLine(card.ToString()));
         }
     }

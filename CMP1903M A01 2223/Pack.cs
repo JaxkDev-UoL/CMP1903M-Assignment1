@@ -52,9 +52,18 @@ namespace CMP1903M_A01_2223
                     (pack.pack[j], pack.pack[i]) = (pack.pack[i], pack.pack[j]);
                 }
             } else {
-
+                // https://www.youtube.com/watch?v=o-KBNdbJOGk
+                // Should this be the perfect in-shuffle ?
+                List<Card> half_a = pack.pack.GetRange(0, 26);
+                List<Card> half_b = pack.pack.GetRange(26, 26);
+                List<Card> new_pack = new List<Card>(52);
+                for(int i = 25; i >= 0; i--) {
+                    new_pack.Add(half_b[i]);
+                    new_pack.Add(half_a[i]);
+                }
+                pack.pack = new_pack;
             }
-            
+
             return true;
 
         }
