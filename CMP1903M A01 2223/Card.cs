@@ -7,17 +7,36 @@ namespace CMP1903M_A01_2223
         //Base for the Card class.
         //Value: numbers 1 - 13
         //Suit: numbers 1 - 4
-        //The 'set' methods for these properties could have some validation
-        public int Value { get; private set; }
-        public int Suit { get; private set; }
+        //Encapsulated true private value and suit with getters and setters.
+
+        private int _Value;
+        public int Value {
+            get {
+                return _Value;
+            }
+            set {
+                if(value > 13 || value < 1) {
+                    throw new ValueException(value, "Value must be in the range 1-13 inclusive.");
+                }
+                _Value = value;
+            }
+        }
+
+        private int _Suit;
+        public int Suit {
+            get {
+                //Abstraction, we don't use names anywhere only a number represena
+                return _Suit;
+            }
+            set {
+                if(value > 4 || value < 1) {
+                    throw new ValueException(value, "Must be in the range 1-4 inclusive.");
+                }
+                _Suit = value;
+            }
+        }
 
         public Card(int Value, int Suit) {
-            if(Value > 13 || Value < 1) {
-                throw new ArgumentOutOfRangeException("Value", "Value must be in the range 1-13 inclusive.");
-            }
-            if(Suit > 4 || Suit < 1) {
-                throw new ArgumentOutOfRangeException("Suit", "Suit must be in the range 1-4 inclusive.");
-            }
             this.Value = Value;
             this.Suit = Suit;
         }
