@@ -19,7 +19,7 @@ namespace CMP1903M_A01_2223
             Pack.resetPack();
         }
 
-        //Resets the entire pack to a default 52 card unshuffled state.
+        //Resets the entire pack to a default 52 card unshuffled state. (Additional Method)
         public static void resetPack() {
             if(Pack.singleton == null) {
                 new Pack();
