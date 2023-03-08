@@ -8,10 +8,11 @@ namespace CMP1903M_A01_2223
 
             try {
                 Testing.demo();
-            }catch(ValueException exception) {
-                Console.WriteLine("Failed to run demonstration, details: " + exception.Message);
+            }catch(ValueException) {
+                Console.WriteLine("Unhandled card/pack error has occured.");
+                //Exception will be printed below.
             }catch(Exception exception) {
-                Console.WriteLine("Failed to run test demo, unknown error has occured - " + exception.Message);
+                Console.WriteLine("Failed to run test demo, error has occured - " + exception.Message);
             }
 
             Testing.menu();
