@@ -14,8 +14,6 @@ namespace CMP1903M_A01_2223
                 Console.WriteLine("Failed to run test demo, unknown error has occured - " + exception.Message);
             }
 
-            //NOTE THIS WILL NOT WORK IN VISUAL STUDIO IDE RUN/DEBUG RUN, INPUT IS NOT ALLOWED.
-            //(At least not on my mac, had to directly execute the built .exe with mono via cli)
             Testing.menu();
         }
     }
