@@ -15,6 +15,7 @@ namespace CMP1903M_A01_2223
                 return;
             }
             Pack.singleton = this;
+            //Fill the pack with reset.
             Pack.resetPack();
         }
 
